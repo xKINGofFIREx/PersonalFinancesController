@@ -1,4 +1,4 @@
-package PersonalFinanceController.src.manager;
+package manager;
 
 public class TransactionManager {
     
