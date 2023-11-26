@@ -19,6 +19,14 @@ public class Transaction {
 
     }
 
+    @Override
+    public String toString() {
+        return "Номер транзакции: " + this.id + "\n" +
+                "Тип транзакции: " + this.sum + "\n" +
+                "Сумма: " + this.sum + "\n" +
+                "Дата транзакции: " + this.date + "\n";
+    }
+
     public long getId() {
         return this.id;
     }
