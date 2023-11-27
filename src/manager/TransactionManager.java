@@ -22,8 +22,6 @@ public class TransactionManager {
     }
 
     public static void showAllTransactions() {
-        for (Transaction transaction : transactions.values()) {
-            System.out.println(transaction);
-        }
+        transactions.values().forEach(System.out::println);
     }
 }
