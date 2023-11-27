@@ -47,9 +47,15 @@ public class Main {
 
                     TransactionManager.showAllTransactions();
 
+                    pressEnter();
                     clReader.readLine();
                 } else if (input == 3) {
+                    clearConsole();
 
+                    TransactionManager.showBalance();
+
+                    pressEnter();
+                    clReader.readLine();
                 } else if (input == 4) {
 
                 } else if (input == 5) {
@@ -70,5 +76,9 @@ public class Main {
 
     private static void clearConsole() {
         System.out.print("\033[H\033[J");
+    }
+
+    private static void pressEnter() {
+        System.out.print("Для выхода из просмотра нажмите - Enter");
     }
 }
