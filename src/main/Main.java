@@ -1,12 +1,13 @@
+package main;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import java.lang.Thread;
 import java.time.LocalDate;
 
-import manager.TransactionManager;
-import model.Transaction;
-import model.TransactionType;
+import main.manager.TransactionManager;
+import main.model.Transaction;
+import main.model.TransactionType;
 
 public class Main {
     
@@ -57,7 +58,15 @@ public class Main {
                     pressEnter();
                     clReader.readLine();
                 } else if (input == 4) {
+                    clearConsole();
 
+                    LocalDate startDate = LocalDate.parse(clReader.readLine());
+                    LocalDate endDate = LocalDate.parse(clReader.readLine());
+
+                    TransactionManager.showStatistics(startDate, endDate);
+
+                    pressEnter();
+                    clReader.readLine();
                 } else if (input == 5) {
                     clearConsole();
                     break;
