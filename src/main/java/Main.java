@@ -1,18 +1,19 @@
-package main;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import java.lang.Thread;
 import java.time.LocalDate;
 
-import main.manager.TransactionManager;
-import main.model.Transaction;
-import main.model.TransactionType;
+import manager.TransactionManager;
+import model.Transaction;
+import model.TransactionType;
 
 public class Main {
-    
+
     public static void main(String[] args) throws IOException, InterruptedException {
-        BufferedReader clReader = new BufferedReader(new InputStreamReader(System.in)); 
+        TransactionManager.loadTrasactions();
+        BufferedReader clReader = new BufferedReader(new InputStreamReader(System.in));
 
         while (true) {
             clearConsole();
@@ -33,8 +34,9 @@ public class Main {
                     clearConsole();
 
                     System.out.print("Введите тип транзакции(0 - income, 1 - outcome): ");
-                    transaction.setType(Integer.parseInt(clReader.readLine()) == 1 
-                                    ? TransactionType.OUTCOME : TransactionType.INCOME);
+                    transaction.setType(Integer.parseInt(clReader.readLine()) == 1
+                            ? TransactionType.OUTCOME
+                            : TransactionType.INCOME);
 
                     System.out.print("Введите сумму транзакции: ");
                     transaction.setSum(Integer.parseInt(clReader.readLine()));
@@ -76,11 +78,12 @@ public class Main {
             } catch (NumberFormatException e) {
                 clearConsole();
                 System.out.println("Неверная команда, число должно быть одним из предложенных");
-                Thread.sleep(3000);
+                Thread.sleep(2000);
             }
         }
 
         clReader.close();
+        TransactionManager.saveTransactions();
     }
 
     private static void clearConsole() {

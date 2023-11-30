@@ -1,4 +1,4 @@
-package main.model;
+package model;
 
 import java.time.LocalDate;
 
@@ -58,5 +58,5 @@ public class Transaction {
     public void setDate(LocalDate date) {
         this.date = date;
     }
-    
+
 }
